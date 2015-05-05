@@ -6,18 +6,20 @@ from argparse import ArgumentParser
 parser = ArgumentParser()
 parser.add_argument("-r", "--run", dest="run",
 help="run", metavar="run")
+#insert an argument "-r" or "--run"
 args = parser.parse_args()
 if args.run:
 	current_directory = os.getcwd()
 	#get the current directory for save configuration and other files saved on the temp directory
 	os.system("mkdir -p /tmp/" + args.run + " > /dev/null")
-	#create a directory with the name of the argument parsed, hide th output
+	#create a directory with the name of the argument parsed, hide the output
 	os.system("tar -xvf " + args.run + " -C /tmp/" + args.run + "> /dev/null")
-	#extract from th tar(.linaps) and copy to tmp, hide the output
+	#extract from th tar(.laps) and copy to tmp, hide the output
 	os.chdir("/tmp/" + args.run)	
 	#change the directory to the temp directory of the argument parsed(the app)
 	os.system("bash conf")
 	#execute the conf bash file, for run the apps
 	os.system("tar -cf " + current_directory + "/" + args.run + "* app > /dev/null")
+	#rebuild the app
 	
 
