@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+#Created by Alfredo Bonino
+#Under GPL3 LICENSE
+import os
+from argparse import ArgumentParser
+parser = ArgumentParser()
+parser.add_argument("-c", "--create", dest="create",
+help="create", metavar="create")
+parser.add_argument("-p", "--package", dest="package",
+help="package", metavar="package")
+args = parser.parse_args()
+if args.create:
+	os.system("mkdir -p " + args.create)
+	os.chdir(os.getcwd() + "/" + args.create)
+	os.system("mkdir -p app")
+	os.system("echo '#!/usr/bin/env bash' > conf")
+	print("Linaps project created!")
+	print("Now, visit thw wiki for create a package!")
+if args.package:
+	os.chdir(os.getcwd() + "/" +  args.package)
+	os.system("tar -cf " + args.package + ".laps * bin lib > /dev/null")
+	os.system("linaps package created!")
