@@ -15,7 +15,6 @@ if args.create:
 	os.system("mkdir -p app")
 	os.system("echo '#!/usr/bin/env bash' > conf")
 	print("Linaps project created!")
-	print("Now, visit thw wiki for create a package!")
 if args.package:
 	os.chdir(os.getcwd() + "/" +  args.package)
 	os.system("tar -cf " + args.package + ".laps * bin lib > /dev/null")
