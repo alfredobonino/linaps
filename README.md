@@ -9,5 +9,3 @@ for package a linaps package:
 ```
 linaps-create -p packagename
 ```
-
-For see the structure of a package see box2tux.laps!
